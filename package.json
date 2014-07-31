@@ -1,0 +1,25 @@
+{
+  "name": "fwtv-faye",
+  "version": "0.0.1",
+  "description": "fwtv faye server",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "faye": "~1.0.3"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/fwtv-faye"
+  },
+  "keywords": [
+    "node",
+    "heroku"
+  ],
+  "author": "Claudio Rodriguez"
+}
