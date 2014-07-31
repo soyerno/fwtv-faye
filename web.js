@@ -12,7 +12,7 @@ var authorized = function(message) {
   }
 };
 
-server.addExtension({
+bayeux.addExtension({
   incoming: function(message, callback) {
     if (message.channel !== '/meta/subscribe') {
       if (!authorized(message)) {
