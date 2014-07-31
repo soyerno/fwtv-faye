@@ -5,9 +5,9 @@ var server = http.createServer(),
   bayeux = new faye.NodeAdapter({mount: '/faye', timeout: 45});
 
 var authorized = function(message) {
-  console.log('auth recv: ' + message.hmac);
+  console.log('auth recv: ' + message.data.hmac);
   console.log('auth expc: ' + process.env.FAYE_KEY);
-  if (message.hmac === process.env.FAYE_KEY) {
+  if (message.data.hmac === process.env.FAYE_KEY) {
     return true;
   } else {
     return false;
@@ -21,8 +21,8 @@ bayeux.addExtension({
       if (!authorized(message)) {
         message.error = '403::Authentication required';
       } else {
-        if (message.hmac) {
-          delete message.hmac;
+        if (message.data.hmac) {
+          delete message.data.hmac;
         }
         callback(message);
       }
